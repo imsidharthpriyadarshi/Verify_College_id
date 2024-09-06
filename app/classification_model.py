@@ -2,7 +2,6 @@ import torch
 from torchvision import datasets, models, transforms
 from torch.utils.data import DataLoader
 import numpy as np
-import matplotlib.pyplot as plt
 import warnings
 
 from torch import nn, optim
