@@ -31,8 +31,8 @@ test_transform=transforms.Compose([
 
 ])
 
-train_dir='/home/sidharth/Documents/verify_id/app/archive/seg_train/seg_train'
-test_dir='/home/sidharth/Documents/verify_id/app/archive/seg_test/seg_test'
+train_dir='/home/sidharth/Verify_College_id/app/archive/seg_train/seg_train'
+test_dir='/home/sidharth/Verify_College_id/app/archive/seg_test/seg_test'
 bs=50
 
 train_data=datasets.ImageFolder(root=train_dir, transform=train_transform)
