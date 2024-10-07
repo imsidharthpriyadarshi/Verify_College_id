@@ -144,12 +144,12 @@ for epoch in range(epochs):
     testing_loss.append(avg_test_loss)
     accuracy_list.append(avg_acc)
     print(avg_acc, avg_train_loss)
-    
-    torch.save(model,'./iterdrop'+str(epoch)+'.pth')
-    print("saved ->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>")
+    if avg_train_loss<0.12 and avg_acc >.85:
+        torch.save(model,'./iterdrop'+str(epoch)+'.pth')
+        print("saved ->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>")
 #     if avg_test_loss == avg_train_loss:
 #         break
 
 min(training_loss)
 min_epoch=training_loss.index(min(training_loss))
-torch.save(model,"./iter.path")
+torch.save(model,"./iter.pth")
