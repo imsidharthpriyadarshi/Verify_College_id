@@ -31,8 +31,10 @@ test_transform=transforms.Compose([
 
 ])
 
-train_dir='/home/sidharth/Verify_College_id/app/archive/seg_train/seg_train'
-test_dir='/home/sidharth/Verify_College_id/app/archive/seg_test/seg_test'
+train_dir='/home/sidharth/Verify_College_id/app/model_land_right/seg_train'
+test_dir='/home/sidharth/Verify_College_id/app/model_land_right/seg_test'
+#train_dir = './data/seg_train'
+#test_dir = './data/seg_test'
 bs=50
 
 train_data=datasets.ImageFolder(root=train_dir, transform=train_transform)
@@ -71,7 +73,7 @@ device= 'cpu'
 if torch.cuda.is_available():
     device='cuda'
 model=resnet50
-print(device)    
+print(device)
 
 
 model=model.to(device)
@@ -142,8 +144,12 @@ for epoch in range(epochs):
     testing_loss.append(avg_test_loss)
     accuracy_list.append(avg_acc)
     print(avg_acc, avg_train_loss)
-    if avg_train_loss<0.12 and avg_acc >.85:
-        torch.save(model,'./iterdrop'+str(epoch)+'.pth')
+    
+    torch.save(model,'./iterdrop'+str(epoch)+'.pth')
+    print("saved ->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>")
 #     if avg_test_loss == avg_train_loss:
 #         break
 
+min(training_loss)
+min_epoch=training_loss.index(min(training_loss))
+torch.save(model,"./iter.path")

@@ -1,3 +1,6 @@
 venv
 app/archive
 app/data/
+app/model_land_right
+app/model_orientation
+app/model_land_right.zip
