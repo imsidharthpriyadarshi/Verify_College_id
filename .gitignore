@@ -4,3 +4,8 @@ app/data/
 app/model_land_right
 app/model_orientation
 app/model_land_right.zip
+app/result
+app/rotations_data
+app/data_rotate
+app/iterdrop18.pth
+app/iterdrop48.pth
