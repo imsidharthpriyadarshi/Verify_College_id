@@ -45,4 +45,5 @@ def predict(model, test_image_name):
     return classes[predicted_class.item()], top_class_prob
 
 
-predict(model,"/home/sidharth/Documents/verify_id/app/model_land_right/seg_test/college_id/xDZh7KwUzu.jpg")
+result=predict(model,"/home/sidharth/Documents/verify_id/app/model_land_right/seg_test/college_id/xDZh7KwUzu.jpg")
+print(result)

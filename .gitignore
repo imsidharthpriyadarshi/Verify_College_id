@@ -9,4 +9,14 @@ app/rotations_data
 app/data_rotate
 app/iterdrop18.pth
 app/iterdrop48.pth
-app/iterdrop49.pth
+app/rotation_iterdrop49.pth
+app/classify_data/
+app/model/pretrained
+app/model/trained/
+# Ignore Python cache files 
+__pycache__/
+app/less_trained_face_classification.pth
+app/rotnet_final1.pth
+
+
+
