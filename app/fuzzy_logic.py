@@ -4,18 +4,25 @@ import cv2 as cv
 from matplotlib import pyplot as plt 
 import numpy as np
 fig = plt.figure(figsize=(10, 7)) 
-def score(extracted, actual):
+def score(extracted, actual, field_type):
     levenshtein_score = fuzz.ratio(extracted, actual)
     token_sort_score = fuzz.token_sort_ratio(extracted, actual)
     token_set_score = fuzz.token_set_ratio(extracted, actual)
     print(levenshtein_score, token_sort_score, token_set_score)
-    # Aggregate score with weights (adjust as necessary)
-    combined_score = (levenshtein_score * 0.4 +
-                      token_sort_score * 0.3 +
-                      token_set_score * 0.3)
-    
+    weights = {
+        'name': (0.05, 0.05, 0.9),
+        'college': (0.05, 0.05, 0.9),
+    }
+
+    w1, w2, w3 = weights.get(field_type, (0.3, 0.4, 0.3)) 
+
+    combined_score = (levenshtein_score * w1 +
+                      token_sort_score * w2 +
+                      token_set_score * w3)
+
     return combined_score
-img="/home/sidharth/Documents/verify_id/app/data/seg_train/landscape/0DKcNMGpyw.jpg"
+
+img="/home/sid/Documents/rotation_data/test/0/upwa5LnJz8.jpg"
 img=cv.imread(img)
 img=cv.cvtColor(img, cv.COLOR_BGR2RGB)
 gray=cv.cvtColor(img, cv.COLOR_BGR2GRAY)
@@ -33,8 +40,8 @@ fig.add_subplot(rows, columns, 1)
 # showing image 
 plt.imshow(img) 
 plt.axis('off') 
-plt.title("First") 
-# Adds a subplot at the 2nd position 
+plt.title("First")
+
 fig.add_subplot(rows, columns, 2) 
   
 # showing image 
@@ -61,8 +68,8 @@ plt.title("Fourth")
 plt.show()
 print(text)
 
-print(score(text.lower(), "melvin sajith"))
-print(score(text.lower(), "karunya institute of technology & science"))
+print(score(text.lower(), "davari vaishnavi ",'name'))
+print(score(text.lower(), "vishwakarma institute of technology", 'college'))
 
 
 

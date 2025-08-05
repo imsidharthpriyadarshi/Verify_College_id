@@ -45,17 +45,24 @@ def infer_orientation(image_path):
 
 # print(f"Rotation Angle: {rotation_angle}°")
 # print(f"Orientation: {orientation}")
-for file in os.listdir("/home/sidharth/Documents/eYRC22_TeamPhoto/teamPhoto"):
-    file_path= os.path.join("/home/sidharth/Documents/eYRC22_TeamPhoto/teamPhoto",file)
-    rotation_angle, orientation = infer_orientation(file_path)
-    print(f"Detected Rotation Angle: {rotation_angle}° {orientation}")
-    if rotation_angle !=None:
-        if rotation_angle==0:
-            shutil.move(file_path, os.path.join("/home/sidharth/Documents/eYRC22_TeamPhoto/0",file))
-        elif rotation_angle==90:
-            shutil.move(file_path, os.path.join("/home/sidharth/Documents/eYRC22_TeamPhoto/90",file))
-        elif rotation_angle==180:
-            shutil.move(file_path, os.path.join("/home/sidharth/Documents/eYRC22_TeamPhoto/180",file))
-        elif rotation_angle==270:  
-            shutil.move(file_path, os.path.join("/home/sidharth/Documents/eYRC22_TeamPhoto/270",file))
-          
+
+for file in os.listdir("/home/sid/Documents/datasets/doubt"):
+    try:
+        file_path= os.path.join("/home/sid/Documents/datasets/doubt",file)
+        rotation_angle, orientation = infer_orientation(file_path)
+        print(f"Detected Rotation Angle: {rotation_angle}° {orientation}")
+        if rotation_angle !=None:
+            if rotation_angle==0:
+                print(file, "0")
+                #shutil.move(file_path, os.path.join("/home/sidharth/Documents/eYRC22_TeamPhoto/0",file))
+            elif rotation_angle==90:
+                print(file,"90")
+                #shutil.move(file_path, os.path.join("/home/sidharth/Documents/eYRC22_TeamPhoto/90",file))
+            elif rotation_angle==180:
+                print(file,"180")
+                #shutil.move(file_path, os.path.join("/home/sidharth/Documents/eYRC22_TeamPhoto/180",file))
+            elif rotation_angle==270:
+                print(file,"270")
+                #shutil.move(file_path, os.path.join("/home/sidharth/Documents/eYRC22_TeamPhoto/270",file))
+    except:
+        print("got error")      

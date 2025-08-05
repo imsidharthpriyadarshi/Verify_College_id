@@ -17,6 +17,7 @@ app/model/trained/
 __pycache__/
 app/less_trained_face_classification.pth
 app/rotnet_final1.pth
+app/visions_key.json
 
 
 

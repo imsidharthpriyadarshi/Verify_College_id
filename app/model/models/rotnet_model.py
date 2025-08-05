@@ -43,8 +43,8 @@ test_transform = transforms.Compose([
     transforms.Normalize(mean=mean, std=std_dev)
 ])
 
-train_dir = '/home/sidharth/Documents/rotation_data/train'
-test_dir = '/home/sidharth/Documents/rotation_data/test'
+train_dir = '/home/sid/Documents/rotation_data/train'
+test_dir = '/home/sid/Documents/rotation_data/test'
 bs = 124
 
 train_data = datasets.ImageFolder(root=train_dir, transform=train_transform)
